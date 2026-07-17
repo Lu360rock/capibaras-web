@@ -1,0 +1,473 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f7fb;
+    color:#222;
+    line-height:1.6;
+}
+
+#hero{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+
+    background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url("../img/hero/hero-capibaras.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.overlay{
+    max-width:800px;
+}
+
+.boton{
+    display:inline-block;
+    background:#ffc107;
+    color:#003b8f;
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.boton:hover{
+    background:#ffda4d;
+}
+
+main{
+    width:min(1200px,95%);
+    margin:60px auto;
+}
+
+#temporada h2{
+    text-align:center;
+    color:#0047bb;
+    margin-bottom:40px;
+}
+
+#contenedor-partidos{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+footer{
+    background:#003b8f;
+    color:#fff;
+    text-align:center;
+    padding:25px;
+    margin-top:60px;
+}
+
+@media(max-width:768px){
+
+    #hero h1{
+        font-size:2.2rem;
+    }
+
+    #hero p{
+        font-size:1rem;
+    }
+
+}
+
+.tarjeta{
+    background:#ffffff;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.tarjeta:hover{
+    transform:translateY(-5px);
+}
+
+.tarjeta h3{
+    color:#0047bb;
+    margin-bottom:15px;
+}
+
+.tarjeta p{
+    margin-bottom:10px;
+}
+
+.tarjeta{
+    width:320px;
+}
+
+.abrir-galeria{
+    width:100%;
+    border:none;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:20px;
+    margin-top:40px;
+}
+
+.foto{
+    background:#ffffff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.10);
+}
+
+.foto img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    display:block;
+    transition:transform .3s;
+    cursor:pointer;
+}
+
+.foto video{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    display:block;
+    background:#000;
+}
+
+.foto img:hover{
+    transform:scale(1.03);
+}
+
+.visor{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.95);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.oculto{
+    display:none;
+}
+
+#imagenGrande{
+    max-width:95%;
+    max-height:90%;
+    border-radius:10px;
+}
+
+#accionesVisor{
+    position:absolute;
+    top:20px;
+    right:20px;
+    display:flex;
+    gap:12px;
+    z-index:10000;
+}
+
+.accion-btn{
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:50%;
+    background:rgba(0,0,0,.55);
+    color:#fff;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:.25s;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter:blur(4px);
+}
+
+.accion-btn:hover{
+    background:rgba(255,255,255,.20);
+}
+
+#cerrarVisor{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.nav-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.2);
+    color:#fff;
+    font-size:30px;
+    cursor:pointer;
+}
+
+#anterior{
+    left:20px;
+}
+
+#siguiente{
+    right:20px;
+}
+
+.nav-btn:hover{
+    background:rgba(255,255,255,.35);
+}
+
+#contadorFotos{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#ffffff;
+    background:rgba(0,0,0,.55);
+    padding:8px 16px;
+    border-radius:20px;
+    font-size:16px;
+    font-weight:600;
+}
+
+.portada-partido{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+.contenido-tarjeta{
+    padding:18px;
+}
+
+#hero p{
+    margin:15px 0 30px;
+    font-size:1.2rem;
+}
+
+@media (max-width:768px){
+
+    .hero-logo{
+        width:130px;
+    }
+
+    #hero h1{
+        font-size:2.2rem;
+    }
+
+}
+
+.hero-contenido{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero-logos{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    margin-bottom:25px;
+}
+
+.logo-juegos{
+    width:140px;
+    height:auto;
+}
+
+.hero-logo{
+    width:110px;
+    height:auto;
+}
+
+#hero h1{
+    font-size:3rem;
+    margin:0 0 15px;
+}
+
+#destacadas{
+    max-width:1200px;
+    margin:60px auto;
+    padding:0 20px;
+}
+
+#destacadas h2{
+    text-align:center;
+    color:#0047bb;
+    margin-bottom:30px;
+}
+
+#carrusel{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    padding:15px 0;
+}
+
+.carrusel-pista{
+    display:flex;
+    gap:18px;
+    width:max-content;
+    will-change:transform;
+}
+
+.miniatura{
+    flex:0 0 180px;
+    height:320px;
+    border-radius:18px;
+    overflow:hidden;
+    display:block;
+    transition:transform .3s;
+    box-shadow:0 10px 30px rgba(0,0,0,.18);
+}
+
+.miniatura:hover{
+    transform:translateY(-8px);
+}
+
+.miniatura img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:
+        transform .35s,
+        filter .35s;
+}
+
+#buscador-partidos{
+    display:flex;
+    justify-content:center;
+    margin:40px 0;
+}
+
+#buscarPartido{
+    width:min(100%,600px);
+    padding:14px 18px;
+    border:2px solid #0047bb;
+    border-radius:10px;
+    font-size:1rem;
+    outline:none;
+    transition:border-color .25s, box-shadow .25s;
+}
+
+#buscarPartido:focus{
+    border-color:#ffc107;
+    box-shadow:0 0 0 4px rgba(255,193,7,.2);
+}
+
+#carrusel::before,
+#carrusel::after{
+    content:"";
+    position:absolute;
+    top:0;
+    width:120px;
+    height:100%;
+    z-index:5;
+    pointer-events:none;
+}
+
+#carrusel::before{
+    left:0;
+    background:linear-gradient(to right,#f5f7fb 0%,transparent 100%);
+}
+
+#carrusel::after{
+    right:0;
+    background:linear-gradient(to left,#f5f7fb 0%,transparent 100%);
+}
+
+.miniatura:hover img{
+    transform:scale(1.08);
+    filter:brightness(1.08);
+}
+
+.icono{
+    width:24px;
+    height:24px;
+    display:block;
+}
+
+.barra-herramientas{
+    position:absolute;
+    bottom:65px;
+    right:20px;
+    display:flex;
+    gap:10px;
+}
+
+.accion-btn:hover{
+    background:rgba(0,0,0,.75);
+}
+
+.accion-btn .icono{
+    width:22px;
+    height:22px;
+}
+
+.error404{
+    margin:0;
+    background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url("../img/hero/404.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+.error404 main{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    color:#fff;
+}
+
+.error404 section{
+    text-align:center;
+    max-width:600px;
+    background:rgba(0,0,0,.45);
+    padding:40px;
+    border-radius:16px;
+    backdrop-filter:blur(4px);
+}
+
+.error404 h1{
+    font-size:5rem;
+    color:#ffc107;
+}
+
+.error404 p{
+    margin:20px 0;
+}
+
+.error404 h1,
+.error404 h2,
+.error404 p{
+    text-shadow:0 2px 8px rgba(0,0,0,.6);
+}

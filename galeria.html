@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Galería | Capibaras Bancoppel</title>
+
+    <meta name="description" content="Galería fotográfica oficial de Capibaras Bancoppel - Juegos Bancarios 2026">
+
+    <link rel="icon" href="img/iconos/favicon.ico?v=2" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header id="hero">
+
+    <div class="overlay">
+
+        <h1 id="tituloPartido">Galería</h1>
+
+        <p id="detallePartido"></p>
+
+        <a href="index.html" class="boton">
+            ← Volver a la temporada
+        </a>
+
+    </div>
+
+</header>
+
+<main>
+
+
+    <section id="informacion-partido">
+
+        <h2>Fotografías</h2>
+
+        <div id="galeria" class="galeria"></div>
+
+    </section>
+
+
+</main>
+
+<div id="visor" class="visor oculto">
+
+<div id="accionesVisor">
+
+    <button
+        id="descargarFoto"
+        class="accion-btn"
+        title="Descargar"
+        aria-label="Descargar fotografía">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="22"
+             height="22"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="#ffffff"
+             stroke-width="2.8"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+
+            <path d="M12 3v11"/>
+            <path d="M7.5 10.5L12 15l4.5-4.5"/>
+            <path d="M5 18v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2"/>
+
+        </svg>
+
+    </button>
+
+    <button
+        id="compartirFoto"
+        class="accion-btn"
+        title="Compartir"
+        aria-label="Compartir fotografía">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="22"
+             height="22"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="#ffffff"
+             stroke-width="2.8"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+
+            <circle cx="18" cy="5" r="2.5"/>
+            <circle cx="6" cy="12" r="2.5"/>
+            <circle cx="18" cy="19" r="2.5"/>
+
+            <path d="M8.3 11l7-4"/>
+            <path d="M8.3 13l7 4"/>
+
+        </svg>
+
+    </button>
+
+    <button
+        id="cerrarVisor"
+        class="accion-btn"
+        title="Cerrar"
+        aria-label="Cerrar visor">
+        ✕
+
+    </button>
+
+</div>
+    <button id="anterior" class="nav-btn">&#10094;</button>
+
+    <img id="imagenGrande" src="" alt="Fotografía">
+    <div id="contadorFotos"></div>
+    <button id="siguiente" class="nav-btn">&#10095;</button>
+
+</div>
+
+<script src="js/galeria.js" defer></script>
+
+</body>
+
+</html>

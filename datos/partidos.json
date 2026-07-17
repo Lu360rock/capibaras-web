@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "jornada": "Jornada 1",
+    "rival": "Infonacot",
+    "fecha": "11/04/2026",
+    "lugar": "Centro Deportivo Coyoacán · Cancha 1",
+    "resultado": "43 - 4",
+    "carpeta": "Jornada 1_11-04-26",
+    "portada": "img/portadas/infonacot.jpg",
+    "totalFotos": 84
+  },
+  {
+    "id": 2,
+    "jornada": "Jornada 2",
+    "rival": "Prosa",
+    "fecha": "18/04/2026",
+    "lugar": "Centro Deportivo Coyoacán · Cancha 4",
+    "resultado": "27 - 12",
+    "carpeta": "Jornada 2_18-04-26",
+    "portada": "img/portadas/prosa.jpg",
+    "totalFotos": 81
+  },
+  {
+    "id": 3,
+    "jornada": "Jornada 3",
+    "rival": "Grupo BMV",
+    "fecha": "26/04/2026",
+    "lugar": "Centro Deportivo Coyoacán · Cancha 4",
+    "resultado": "18 - 10",
+    "carpeta": "Jornada 3_26-04-26",
+    "portada": "img/portadas/grupo-bmv.jpg",
+    "totalFotos": 208
+  },
+  {
+    "id": 4,
+    "jornada": "Jornada 4",
+    "rival": "Mifel",
+    "fecha": "03/05/2026",
+    "lugar": "Centro Deportivo Coyoacán · Cancha 4",
+    "resultado": "26 - 22",
+    "carpeta": "Jornada 4_03-05-26",
+    "portada": "img/portadas/mifel.jpg",
+    "totalFotos": 183
+  },
+  {
+    "id": 5,
+    "jornada": "Jornada 5",
+    "rival": "Invex",
+    "fecha": "09/05/2026",
+    "lugar": "Centro Deportivo Coyoacán · Cancha 4",
+    "resultado": "38 - 15",
+    "carpeta": "Jornada 5_09-05-26",
+    "portada": "img/portadas/invex.jpg",
+    "totalFotos": 154
+  },
+  {
+    "id": 6,
+    "jornada": "Jornada 6",
+    "rival": "Condusef",
+    "fecha": "17/05/2026",
+    "lugar": "Centro Deportivo Coyoacán · Cancha 4",
+    "resultado": "33 - 12",
+    "carpeta": "Jornada 6_17-05-26",
+    "portada": "img/portadas/condusef.jpg",
+    "totalFotos": 98
+  },
+  {
+    "id": 7,
+    "jornada": "Jornada 7",
+    "rival": "Consubanco",
+    "fecha": "24/05/2026",
+    "lugar": "Centro Deportivo Coyoacán · Cancha 4",
+    "resultado": "35 - 10",
+    "carpeta": "Jornada 7_24-05-26",
+    "portada": "img/portadas/consubanco.jpg",
+    "totalFotos": 0
+  },
+  {
+    "id": 8,
+    "jornada": "Semifinal",
+    "rival": "Monex",
+    "fecha": "07/06/2026",
+    "lugar": "Centro Deportivo Coyoacán · Cancha 1",
+    "resultado": "36 - 19",
+    "carpeta": "Semifinal_31-05-26",
+    "portada": "img/portadas/monex.jpg",
+    "totalFotos": 19
+  },
+  {
+    "id": 9,
+    "jornada": "Gran Final",
+    "rival": "Nafin",
+    "fecha": "07/06/2026",
+    "lugar": "Centro Deportivo Coyoacán · Cancha 1",
+    "resultado": "29 - 23",
+    "carpeta": "Final_07-06-26",
+    "portada": "img/portadas/nafin.jpg",
+    "totalFotos": 321
+  },
+  {
+    "id": 10,
+    "jornada": "Premiación",
+    "rival": "Capibaras Bancoppel",
+    "fecha": "07/06/2026",
+    "lugar": "Centro Deportivo Coyoacán",
+    "resultado": "Entrega de premios",
+    "carpeta": "Premiacion_07-06-26",
+    "portada": "img/portadas/premiacion.jpg",
+    "totalFotos": 68
+  }
+]
