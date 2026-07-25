@@ -1,6 +1,8 @@
-fetch(`datos/carrusel.json?v=2`)
-    .then(respuesta => respuesta.json())
-    .then(imagenes => {
+Promise.all([
+    fetch(`datos/carrusel.json?v=2`).then(respuesta => respuesta.json()),
+    fetch(`datos/drive-map.json?v=1`).then(respuesta => respuesta.json())
+])
+.then(([imagenes, drive]) => {
 
         const pista = document.getElementById("carruselPista");
 
@@ -14,6 +16,22 @@ fetch(`datos/carrusel.json?v=2`)
         }
 
         const destacadas = imagenes
+            .map(foto => {
+
+                const partidoDrive = drive.partidos[String(foto.partido)];
+
+                const archivo = foto.imagen.split("/").pop();
+
+                const fotoDrive = partidoDrive?.imagenes.find(
+                    imagen => imagen.archivo === archivo
+                );
+
+                return {
+                    ...foto,
+                    imagen: fotoDrive ? fotoDrive.url : foto.imagen
+                };
+
+            })
             .sort(() => Math.random() - 0.5)
             .slice(0, 12);
 

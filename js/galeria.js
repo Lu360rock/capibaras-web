@@ -1,12 +1,26 @@
 let imagenes = [];
 let indiceActual = 0;
 let zoom = 1;
+
+let driveMap = null;
+
+async function obtenerDriveMap() {
+    if (driveMap) return driveMap;
+
+    const respuesta = await fetch("datos/drive-map.json?v=1");
+    driveMap = await respuesta.json();
+
+    return driveMap;
+}
+
 const parametros = new URLSearchParams(window.location.search);
 const id = Number(parametros.get("partido"));
 
-fetch("datos/partidos.json")
-    .then(respuesta => respuesta.json())
-    .then(partidos => {
+Promise.all([
+    fetch("datos/partidos.json").then(r => r.json()),
+    obtenerDriveMap()
+])
+.then(([partidos, drive]) => {
 
         const partido = partidos.find(p => p.id === id);
 
@@ -24,18 +38,28 @@ fetch("datos/partidos.json")
             <strong>Resultado:</strong> ${partido.resultado}
         `;
 
-        return fetch(`temporadas/2026/${partido.carpeta}/galeria.json?v=2`)
-            .then(respuesta => respuesta.json())
-            .then(imagenes => ({ partido, imagenes }));
+       const drivePartido = drive.partidos[String(partido.id)];
+
+       return {
+           partido,
+           imagenes: drivePartido.imagenes,
+           drivePartido
+     };
 
     })
     .then(datos => {
 
        if (!datos) return;
 
-       imagenes = datos.imagenes.map(imagen =>
-           `temporadas/2026/${datos.partido.carpeta}/${imagen.archivo}`
-       );
+       imagenes = datos.imagenes.map(imagen => {
+
+           const fotoDrive = datos.drivePartido.imagenes.find(
+               f => f.archivo === imagen.archivo
+           );
+
+           return fotoDrive ? fotoDrive.url : `temporadas/2026/${datos.partido.carpeta}/${imagen.archivo}`;
+
+       });
 
        const galeria = document.getElementById("galeria");
 
@@ -45,7 +69,13 @@ fetch("datos/partidos.json")
 
             tarjeta.className = "foto";
 
-            const ruta = `temporadas/2026/${datos.partido.carpeta}/${imagen.archivo}`;
+            const fotoDrive = datos.drivePartido.imagenes.find(
+                f => f.archivo === imagen.archivo
+            );
+
+            const ruta = fotoDrive
+                ? fotoDrive.url
+                : `temporadas/2026/${datos.partido.carpeta}/${imagen.archivo}`;
 
             const extension = imagen.archivo.split(".").pop().toLowerCase();
 
