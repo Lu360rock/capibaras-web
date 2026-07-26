@@ -79,7 +79,60 @@ Promise.all([
 
             const extension = imagen.archivo.split(".").pop().toLowerCase();
 
-            if (extension === "mp4") {
+            if (extension === "mp4" && fotoDrive?.fileId) {
+
+                const urlVideo =
+                    `https://drive.google.com/file/d/${encodeURIComponent(fotoDrive.fileId)}/preview`;
+
+                tarjeta.innerHTML = `
+                    <a
+                        href="${urlVideo}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Reproducir video"
+                        style="
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            text-decoration: none;
+                        ">
+
+                        <div style="
+                            position: relative;
+                            width: 100%;
+                            min-height: 300px;
+                            height: 100%;
+                            background-image: url('${fotoDrive.url}');
+                            background-size: cover;
+                            background-position: center;
+                            border-radius: 10px;
+                            overflow: hidden;
+                        ">
+
+                            <span style="
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                width: 70px;
+                                height: 70px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border-radius: 50%;
+                                background: rgba(0, 0, 0, 0.75);
+                                color: white;
+                                font-size: 34px;
+                                padding-left: 5px;
+                            ">
+                                ▶
+                            </span>
+
+                        </div>
+                    </a>
+                `;
+
+            } else if (extension === "mp4") {
 
                 tarjeta.innerHTML = `
                     <video
