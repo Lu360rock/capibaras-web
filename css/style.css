@@ -471,3 +471,64 @@ footer{
 .error404 p{
     text-shadow:0 2px 8px rgba(0,0,0,.6);
 }
+
+.visor {
+    isolation: isolate;
+    padding: 20px 90px;
+}
+
+#imagenGrande {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+#anterior,
+#siguiente {
+    position: absolute !important;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3 !important;
+
+    width: 60px;
+    height: 60px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.75);
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.55);
+}
+
+#anterior {
+    left: 20px;
+}
+
+#siguiente {
+    right: 20px;
+}
+
+@media (max-width: 600px) {
+
+    .visor {
+        padding: 10px 52px;
+    }
+
+    #anterior,
+    #siguiente {
+        width: 44px;
+        height: 44px;
+        font-size: 24px;
+    }
+
+    #anterior {
+        left: 5px;
+    }
+
+    #siguiente {
+        right: 5px;
+    }
+}

@@ -51,15 +51,26 @@ Promise.all([
 
        if (!datos) return;
 
-       imagenes = datos.imagenes.map(imagen => {
+      imagenes = datos.imagenes
+          .filter(imagen => {
 
-           const fotoDrive = datos.drivePartido.imagenes.find(
-               f => f.archivo === imagen.archivo
-           );
+              const extension =
+                  imagen.archivo.split(".").pop().toLowerCase();
 
-           return fotoDrive ? fotoDrive.url : `temporadas/2026/${datos.partido.carpeta}/${imagen.archivo}`;
+              return extension !== "mp4";
 
-       });
+         })
+         .map(imagen => {
+
+             const fotoDrive = datos.drivePartido.imagenes.find(
+                 f => f.archivo === imagen.archivo
+             );
+
+             return fotoDrive
+                 ? fotoDrive.url
+                 : `temporadas/2026/${datos.partido.carpeta}/${imagen.archivo}`;
+
+         });
 
        const galeria = document.getElementById("galeria");
 
@@ -150,7 +161,7 @@ Promise.all([
                         src="${ruta}"
                         alt="Fotografía del partido ${datos.partido.jornada} contra ${datos.partido.rival}"
                         loading="lazy"
-                        data-indice="${indice}"
+                        data-indice="${imagenes.indexOf(ruta)}"
                         data-imagen="${ruta}">
                 `;
 
@@ -345,7 +356,11 @@ document.getElementById("descargarFoto").addEventListener("click", () => {
 
 document.getElementById("compartirFoto").addEventListener("click", async () => {
 
-    const url = window.location.origin + "/" + imagenes[indiceActual];
+    const rutaActual = imagenes[indiceActual];
+
+    const url = rutaActual.startsWith("http")
+        ? rutaActual
+        : new URL(rutaActual, window.location.href).href;
 
     if (navigator.share) {
 
