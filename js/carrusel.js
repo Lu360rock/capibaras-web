@@ -28,7 +28,9 @@ Promise.all([
 
                 return {
                     ...foto,
-                    imagen: fotoDrive ? fotoDrive.url : foto.imagen
+                    imagen: fotoDrive
+                        ? fotoDrive.url.replace("&sz=w2000", "&sz=w600")
+                        : foto.imagen
                 };
 
             })

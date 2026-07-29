@@ -88,6 +88,10 @@ Promise.all([
                 ? fotoDrive.url
                 : `temporadas/2026/${datos.partido.carpeta}/${imagen.archivo}`;
 
+            const rutaMiniatura = fotoDrive
+                ? fotoDrive.url.replace("&sz=w2000", "&sz=w600")
+                : ruta;
+
             const extension = imagen.archivo.split(".").pop().toLowerCase();
 
             if (extension === "mp4" && fotoDrive?.fileId) {
@@ -158,7 +162,7 @@ Promise.all([
 
                 tarjeta.innerHTML = `
                     <img
-                        src="${ruta}"
+                        src="${rutaMiniatura}"
                         alt="Fotografía del partido ${datos.partido.jornada} contra ${datos.partido.rival}"
                         loading="lazy"
                         data-indice="${imagenes.indexOf(ruta)}"
