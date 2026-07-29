@@ -358,9 +358,25 @@ document.getElementById("compartirFoto").addEventListener("click", async () => {
 
     const rutaActual = imagenes[indiceActual];
 
-    const url = rutaActual.startsWith("http")
+    let url = rutaActual.startsWith("http")
         ? rutaActual
         : new URL(rutaActual, window.location.href).href;
+
+    try {
+
+        const direccionDrive = new URL(url);
+        const fileId = direccionDrive.searchParams.get("id");
+
+        if (fileId) {
+            url =
+                `https://drive.google.com/file/d/${encodeURIComponent(fileId)}/view?usp=sharing`;
+       }
+
+    } catch (error) {
+
+        console.error("No se pudo preparar el enlace para compartir:", error);
+
+ }
 
     if (navigator.share) {
 
